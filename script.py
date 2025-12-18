@@ -86,3 +86,4 @@ print("\nTop Features driving YOUR scores:")
 importances = model.get_feature_importance(prettified=True)
 print(importances.head(10))
 
+model.save_model("genshin_artifact_rater.cbm")

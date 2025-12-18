@@ -1,0 +1,77 @@
+CREATE TABLE "Artifact_itself" (
+  "ID" SERIAL PRIMARY KEY,
+  "Set" VARCHAR(255),
+  "Type" VARCHAR(50),
+  "Main_Stat" VARCHAR(50),
+  "Number_of_substat" INT,
+  "Percent_ATK" INT DEFAULT 0,
+  "Percent_HP" INT DEFAULT 0,
+  "Percent_DEF" INT DEFAULT 0,
+  "ATK" INT DEFAULT 0,
+  "HP" INT DEFAULT 0,
+  "DEF" INT DEFAULT 0,
+  "ER" INT DEFAULT 0,
+  "EM" INT DEFAULT 0,
+  "Crit_Rate" INT DEFAULT 0,
+  "Crit_DMG" INT DEFAULT 0,
+  "Where_got_it" VARCHAR(50),
+  "Score" VARCHAR(50),
+  "CreateDate" DATE DEFAULT CURRENT_DATE
+);
+
+CREATE TABLE "Artifact_leveling" (
+  "ID" INT PRIMARY KEY,
+  "L_HP" INT DEFAULT 0,
+  "L_ATK" INT DEFAULT 0,
+  "L_DEF" INT DEFAULT 0,
+  "L_Percent_HP" INT DEFAULT 0,
+  "L_Percent_ATK" INT DEFAULT 0,
+  "L_Percent_DEF" INT DEFAULT 0,
+  "L_EM" INT DEFAULT 0,
+  "L_ER" INT DEFAULT 0,
+  "L_Crit_Rate" INT DEFAULT 0,
+  "L_Crit_DMG" INT DEFAULT 0,
+  "Added_substat" VARCHAR(20) DEFAULT 'None',
+  "CreateDate" DATE DEFAULT CURRENT_DATE,
+  "LastAdded" DATE DEFAULT CURRENT_DATE,
+  FOREIGN KEY ("ID") REFERENCES "Artifact_itself"("ID") ON DELETE CASCADE
+);
+
+CREATE TABLE "Drive_Disc" (
+  "ID" SERIAL PRIMARY KEY,
+  "Set" VARCHAR(255),
+  "Slot" VARCHAR(50),
+  "Main_Stat" VARCHAR(50),
+  "Number_of_substat" INT,
+  "Percent_ATK" INT DEFAULT 0,
+  "Percent_HP" INT DEFAULT 0,
+  "Percent_DEF" INT DEFAULT 0,
+  "ATK" INT DEFAULT 0,
+  "HP" INT DEFAULT 0,
+  "DEF" INT DEFAULT 0,
+  "PEN" INT DEFAULT 0,
+  "AP" INT DEFAULT 0,
+  "Crit_Rate" INT DEFAULT 0,
+  "Crit_DMG" INT DEFAULT 0,
+  "Where_got_it" VARCHAR(50),
+  "Score" VARCHAR(50),
+  "CreateDate" DATE DEFAULT CURRENT_DATE
+);
+
+CREATE TABLE "Drive_Disc_leveling" (
+  "ID" INT PRIMARY KEY,
+  "L_HP" INT DEFAULT 0,
+  "L_ATK" INT DEFAULT 0,
+  "L_DEF" INT DEFAULT 0,
+  "L_Percent_HP" INT DEFAULT 0,
+  "L_Percent_ATK" INT DEFAULT 0,
+  "L_Percent_DEF" INT DEFAULT 0,
+  "L_AP" INT DEFAULT 0,
+  "L_PEN" INT DEFAULT 0,
+  "L_Crit_Rate" INT DEFAULT 0,
+  "L_Crit_DMG" INT DEFAULT 0,
+  "Added_substat" VARCHAR(20) DEFAULT 'None',
+  "CreateDate" DATE DEFAULT CURRENT_DATE,
+  "LastAdded" DATE DEFAULT CURRENT_DATE,
+  FOREIGN KEY ("ID") REFERENCES "Drive_Disc"("ID") ON DELETE CASCADE
+);
