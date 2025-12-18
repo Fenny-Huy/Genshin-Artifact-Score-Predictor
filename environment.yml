@@ -1,0 +1,12 @@
+name: genshin_artifact_ml
+channels:
+  - defaults
+dependencies:
+  - python=3.10
+  - pandas
+  - scikit-learn
+  - sqlalchemy
+  - pip
+  - pip:
+      - catboost
+      - psycopg2-binary
